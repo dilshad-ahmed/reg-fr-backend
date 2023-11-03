@@ -1,9 +1,7 @@
-import express from "express";
-
-export const app = express();
-
-import cors from "cors";
-import userRouter from "./routes/userRoute.js";
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const userRouter = require("./routes/userRoute.js");
 
 app.use(express.json());
 app.use(
@@ -13,13 +11,15 @@ app.use(
   })
 );
 
-//Routes
+// Routes
 app.use("/api/v1", userRouter);
 
-//testing api
+// Testing API
 app.get("/test", (req, res, next) => {
   res.status(200).json({
     success: true,
     message: "API is working",
   });
 });
+
+module.exports = app;

@@ -1,6 +1,6 @@
-import User from "../model/userModel.js";
+const User = require("../model/userModel.js");
 
-export const registerationUser = async (req, res) => {
+exports.registerationUser = async (req, res) => {
   try {
     const {
       firstName,
@@ -38,7 +38,7 @@ export const registerationUser = async (req, res) => {
   }
 };
 
-export const getAllUsers = async (req, res) => {
+exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find().sort({ _id: -1 });
     res.status(200).json({
